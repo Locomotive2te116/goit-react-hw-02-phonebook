@@ -1,5 +1,6 @@
 import React from 'react';
 import { ContactsList } from './ContactsList/ContactsList';
+import { InputField } from './InputField/InputField';
 
 export class App extends React.Component {
   state = {
@@ -10,6 +11,12 @@ export class App extends React.Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
+  };
+
+  updateContactState = newContact => {
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, newContact],
+    }));
   };
 
   deleteContact = id => {
@@ -31,7 +38,10 @@ export class App extends React.Component {
     return (
       <div>
         <h1>Phonebook</h1>
-
+        <InputField
+          contacts={this.state.contacts}
+          updateContactState={this.updateContactState}
+        />
         <h2>Contacts</h2>
         <ContactsList
           contacts={this.state.contacts}
