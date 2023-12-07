@@ -1,7 +1,7 @@
 import React from 'react';
 import { ContactsList } from './ContactsList/ContactsList';
-import { InputField } from './InputField/InputField';
-
+import { Input } from './Input/Input';
+import { Filter } from './Filter/Filter';
 export class App extends React.Component {
   state = {
     contacts: [
@@ -11,6 +11,10 @@ export class App extends React.Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
+  };
+
+  changeFilter = event => {
+    this.setState({ filter: event.target.value });
   };
 
   updateContactState = newContact => {
@@ -38,7 +42,7 @@ export class App extends React.Component {
     return (
       <div>
         <h1>Phonebook</h1>
-        <InputField
+        <Input
           contacts={this.state.contacts}
           updateContactState={this.updateContactState}
         />
@@ -47,7 +51,12 @@ export class App extends React.Component {
           contacts={this.state.contacts}
           getFilteredData={this.getFilteredData}
           deleteContact={this.deleteContact}
-        ></ContactsList>
+        >
+          <Filter
+            changeFilter={this.changeFilter}
+            filterState={this.state.filter}
+          />
+        </ContactsList>
       </div>
     );
   }

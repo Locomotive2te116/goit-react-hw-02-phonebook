@@ -1,7 +1,7 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
 
-export class InputField extends React.Component {
+export class Input extends React.Component {
   state = {
     name: '',
     number: '',
@@ -20,6 +20,10 @@ export class InputField extends React.Component {
 
     if (this.props.contacts.some(contact => contact.name === name)) {
       alert(`Contact with the name ${name} already exists!`);
+      return;
+    }
+    if (this.props.contacts.some(contact => contact.number === number)) {
+      alert(`Contact with the number ${number} already exists!`);
       return;
     }
 
