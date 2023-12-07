@@ -5,7 +5,7 @@ export class App extends React.Component {
     name: '',
   };
   render() {
-    const { contacts, name } = this.state;
+    const { name } = this.state;
     return (
       <div>
         <h1>Phonebook</h1>
