@@ -2,6 +2,7 @@ import React from 'react';
 import { ContactsList } from './ContactsList/ContactsList';
 import { Input } from './Input/Input';
 import { Filter } from './Filter/Filter';
+import s from './App.module.css';
 export class App extends React.Component {
   state = {
     contacts: [
@@ -40,13 +41,13 @@ export class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Phonebook</h1>
+      <div className={s.container}>
+        <h1 className={s.title}>Phonebook</h1>
         <Input
           contacts={this.state.contacts}
           updateContactState={this.updateContactState}
         />
-        <h2>Contacts</h2>
+        <h2 className={s.title2}>Contacts</h2>
         <ContactsList
           contacts={this.state.contacts}
           getFilteredData={this.getFilteredData}

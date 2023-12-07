@@ -1,6 +1,6 @@
 import React from 'react';
 import { ContactItem } from 'components/ContactItem/ContactItem';
-
+import s from './ContactsList.module.css';
 export const ContactsList = ({
   contacts,
   getFilteredData,
@@ -15,7 +15,7 @@ export const ContactsList = ({
       {filteredContacts.length === 0 ? (
         <p>No contacts match your search</p>
       ) : (
-        <ul>
+        <ul className={s.contact_list}>
           {filteredContacts.map(({ id, name, number }) => (
             <ContactItem
               key={id}

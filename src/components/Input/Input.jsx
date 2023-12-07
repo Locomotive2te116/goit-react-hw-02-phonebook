@@ -1,6 +1,6 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
-
+import s from './Input.module.css';
 export class Input extends React.Component {
   state = {
     name: '',
@@ -35,29 +35,35 @@ export class Input extends React.Component {
   render() {
     return (
       <form onSubmit={this.createContact}>
-        <label>
-          Name <br />
-          <input
-            name="name"
-            value={this.state.name}
-            type="text"
-            placeholder="Enter contact name"
-            onChange={event => this.handleValueChange('name', event)}
-          />
-        </label>
+        <div className={s.styleForm}>
+          <label>
+            Name <br />
+            <input
+              className={s.win}
+              name="name"
+              value={this.state.name}
+              type="text"
+              placeholder="Enter contact name"
+              onChange={event => this.handleValueChange('name', event)}
+            />
+          </label>
 
-        <label>
-          Number <br />
-          <input
-            name="number"
-            value={this.state.number}
-            type="tel"
-            placeholder="Enter contact number"
-            onChange={event => this.handleValueChange('number', event)}
-            required
-          />
-        </label>
-        <button type="submit">Add contact</button>
+          <label>
+            Number <br />
+            <input
+              className={s.win}
+              name="number"
+              value={this.state.number}
+              type="tel"
+              placeholder="Enter contact number"
+              onChange={event => this.handleValueChange('number', event)}
+              required
+            />
+          </label>
+        </div>
+        <button className={s.inputbtn} type="submit">
+          Add contact
+        </button>
       </form>
     );
   }
