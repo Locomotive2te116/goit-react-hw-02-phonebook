@@ -19,11 +19,11 @@ export class Input extends React.Component {
     const newContact = { name, number, id: nanoid(5) };
 
     if (this.props.contacts.some(contact => contact.name === name)) {
-      alert(`Contact with the name ${name} already exists!`);
+      alert(`Contact  ${name} already in contacts!`);
       return;
     }
     if (this.props.contacts.some(contact => contact.number === number)) {
-      alert(`Contact with the number ${number} already exists!`);
+      alert(`Contact  ${number} already in contacts!`);
       return;
     }
 
